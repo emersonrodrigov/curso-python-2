@@ -13,7 +13,6 @@ print('Pegando item na posição 2 convites[1] %s' %(convites[1]))
 print('Pegando item na posição 2 convites[2] %s' %(convites[2]))
 
 print('Pegando itens da lista com slice [0:2] %s' %(convites[0:2]))
-
 print('Pegando itens da lista apartir posicao [1:] %s' %(convites[1:]))
 
 
