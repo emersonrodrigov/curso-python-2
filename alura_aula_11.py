@@ -1,4 +1,4 @@
-
+from model import *
 
 # AULA - 11 - LEITURA E ESCRITA DE ARQUIVO
 
@@ -34,5 +34,6 @@ for linha in arquivo_lido:
 arquivo = open('teste.txt', 'a')
 arquivo.write('Python rocks \n')
 arquivo.close()
+
 
 
