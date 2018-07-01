@@ -3,6 +3,9 @@ class Perfil(object): # new style declaracao da classe
     'Classe padrão para perfis de usuários'
 
     def __init__(self, nome, telefone, empresa):
+        if (len(nome) < 3):
+            raise Argumento_Invalido_Error('Nome deve ter pelo menos 3 caracteres')
+
         self.nome = nome
         self.telefone = telefone
         self.empresa = empresa
@@ -40,10 +43,26 @@ class Perfil(object): # new style declaracao da classe
         perfis = []
         for linha in arquivo:
             valores = linha.split(',')
+            if (len(valores) is not 3):
+                raise Perfil_Error('Uma linha no arquivo %s deve ter 3 valores' % nome_arquivo)
             perfis.append(Perfil_Vip(*valores))
         arquivo.close()
         return perfis
 
+class Argumento_Invalido_Error(Exception):
+
+    def __init__(self, mensagem):
+      self.mensagem = mensagem
+
+    def __str__(self):
+      return repr(self.mensagem)
+
+class Perfil_Error(Exception):
+    def __init__(self, mensagem):
+        self.mensagem = mensagem
+
+    def __str__(self):
+        return repr(self.mensagem)
 
 # Aula 10 -  Heranca
 class Perfil_Vip(Perfil):
